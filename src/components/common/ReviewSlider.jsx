@@ -94,10 +94,13 @@ function ReviewSlider() {
                     }
                 </Swiper>
             </div>
-            <div className='md:hidden redborder '>
+            <div className='md:hidden '>
             <Swiper
-                     modules={[A11y, EffectCards]}
-                    effect={'cards'}
+                    modules={[Navigation, Pagination, Scrollbar, A11y, EffectCards]}
+                    centeredSlides={true}
+                    navigation={true}
+                    slidesPerView={1}
+                    loop={true}
                 >
                     {
                         reviews.map((review, index) => (

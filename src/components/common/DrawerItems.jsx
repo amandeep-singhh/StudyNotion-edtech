@@ -131,7 +131,7 @@ function DrawerItems({ navDrawer, setNavDrawer }) {
             {
                 token === null &&
                 (
-                    <div className='flex h-full items-end gap-4 '>
+                    <div className='flex my-12  gap-3 '>
                         <Link className={` customGradient-Bg text-richblack-900 font-semibold  py-2 px-2 rounded-lg border border-[#808080a1]  transition-all  flex-1 text-center`} to={'/signup'} onClick={() => setNavDrawer(false)}>Sign up</Link>
 
                         <Link className={` customGradient-orangeBg text-richblack-900 font-semibold  py-2 px-2 rounded-lg border border-[#808080a1]  transition-all  flex-1 text-center`} to={'/login'} onClick={() => setNavDrawer(false)}>Login</Link>
