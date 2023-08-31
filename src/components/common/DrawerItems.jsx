@@ -115,7 +115,7 @@ function DrawerItems({ navDrawer, setNavDrawer }) {
             {
                 token &&
                 (
-                    <div className='flex h-full items-end'>
+                    <div className='flex my-12  gap-3'>
                         <button
                             onClick={() => {
                                 setNavDrawer(false)
