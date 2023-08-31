@@ -56,7 +56,7 @@ function CourseSlider({ courses }) {
                                 courses?.map((course, index) => (
                                     <SwiperSlide
                                         key={index}>
-                                        <CourseCard course={course} />
+                                        <CourseCard course={course} avgRating={GetAvgRating(course?.ratingAndReviews)}/>
                                     </SwiperSlide>
                                 ))
                             }
@@ -81,7 +81,7 @@ function CourseSlider({ courses }) {
                                 courses?.map((course, index) => (
                                     <SwiperSlide
                                         key={index}>
-                                        <CourseCard course={course} />
+                                        <CourseCard course={course} avgRating={GetAvgRating(course?.ratingAndReviews)}/>
                                     </SwiperSlide>
                                 ))
                             }

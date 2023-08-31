@@ -100,7 +100,7 @@ function Course() {
     useEffect(() => {
         
         setCourseCardHeight((((cardHeight.current.clientHeight)-(divHeight.current.clientHeight))-40)+'px')
-        console.log('course card hieght:',courseCardHeight)
+        // console.log('course card hieght:',courseCardHeight)
     }, [cardHeight?.current?.clientHeight,screenSize])
 
     useEffect(() => {
@@ -242,7 +242,7 @@ function Course() {
 
                             {courseData?.data?.courseContent?.map((section) => (
                                 <details className='group'>
-                                    <summary key={section._id} className='py-4 px-8 flex justify-between bg-richblack-700 text-sm  hover:cursor-pointer border-b-[1px] border-richblack-300 '>
+                                    <summary key={section._id} className='py-4 px-3 md:px-8 flex justify-between bg-richblack-700 text-sm  hover:cursor-pointer border-b-[1px] border-richblack-300 list-none'>
                                         <p className='text-richblack-5  font-medium flex  items-center gap-2'>
                                             <BiDownArrow className='group-open:rotate-180 transition-all' />
                                             <p>{section?.sectionName}</p>
@@ -252,7 +252,7 @@ function Course() {
                                     <div className='py-4 px-8 flex flex-col gap-3'>
                                         {section?.subSection?.map((subSection) => (
                                             <details key={subSection._id} className='group/child'>
-                                                <summary className='text-sm flex justify-between hover:cursor-pointer '>
+                                                <summary className='text-sm flex justify-between hover:cursor-pointer list-none'>
                                                     <div className='text-richblack-5 font-medium flex  items-center gap-2'>
                                                         <FaDesktop />
                                                         <p>{subSection?.title}</p>
