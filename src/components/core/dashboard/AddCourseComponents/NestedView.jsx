@@ -58,7 +58,7 @@ function NestedView({ handleChangeEditSectionName }) {
                 {
                     course.courseContent.map((section) => (
                         <details key={section._id} className='group '>
-                            <summary className='flex justify-between cursor-pointer py-2 group-open:border-b-[1px] group-open:border-richblack-400'>
+                            <summary className='flex justify-between cursor-pointer py-2 group-open:border-b-[1px] group-open:border-richblack-400 no-details-marker'>
                                 <div className='flex items-center gap-2 cursor-pointer'>
                                     <RxDropdownMenu className='text-2xl text-richblack-100 ' />
                                     <p className='text-richblack-25 font-semibold'>
