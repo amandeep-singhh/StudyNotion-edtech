@@ -40,8 +40,7 @@ function UpdatePersonalInfo() {
 
     function profileInfoSave(e) {
         e.preventDefault();
-
-        if (String(formData.contactNumber).length != 10) {
+        if ((String(formData.contactNumber).length != 10) && (formData.contactNumber !== null)) {
             return toast.error('Enter a valid phone number')
         }
         if (formData.firstName == '' || formData.lastName == '') {
@@ -51,55 +50,55 @@ function UpdatePersonalInfo() {
         updateProfileInfo(formData, token)
 
     }
-  return (
-    <div className='p-6 bg-richblack-700 rounded-lg flex flex-col gap-5 '>
-                <h4 className='font-semibold text-richblack-5 text-lg'>Profile information</h4>
+    return (
+        <div className='p-6 bg-richblack-700 rounded-lg flex flex-col gap-5 '>
+            <h4 className='font-semibold text-richblack-5 text-lg'>Profile information</h4>
 
-                <form onSubmit={profileInfoSave} className='grid md:grid-cols-2 md:grid-rows-3 gap-x-5 gap-y-5'>
-                    {personalDetails.map((item, index) => {
-                        return (
-                            <div key={index} className='flex flex-col gap-[0.375rem]'>
-                                <label
-                                    htmlFor={item.name}
-                                    className='text-richblack-300 text-sm'>
-                                    {item.label}
-                                </label>
-                                {item.name == 'gender' ?
-                                    (<select
-                                        value={formData[item.name]}
-                                        onChange={handleOnChangeProfile}
-                                        name={item.name}
-                                        //defaultValue={`${user.additionalDetails.gender && user.additionalDetails.gender}`}
-                                        className='text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline
+            <form onSubmit={profileInfoSave} className='grid md:grid-cols-2 md:grid-rows-3 gap-x-5 gap-y-5'>
+                {personalDetails.map((item, index) => {
+                    return (
+                        <div key={index} className='flex flex-col gap-[0.375rem]'>
+                            <label
+                                htmlFor={item.name}
+                                className='text-richblack-300 text-sm'>
+                                {item.label}
+                            </label>
+                            {item.name == 'gender' ?
+                                (<select
+                                    value={formData[item.name]}
+                                    onChange={handleOnChangeProfile}
+                                    name={item.name}
+                                    //defaultValue={`${user.additionalDetails.gender && user.additionalDetails.gender}`}
+                                    className='text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline
                                      placeholder:text-richblack-300 placeholder:italic' >
-                                        {!user.additionalDetails.gender && <option value=''>Choose here</option>}
-                                        <option value='Female'>Female</option>
-                                        <option value='Male'>Male</option>
-                                    </select>) :
-                                    (<input
-                                        value={formData[item.name]}
-                                        onChange={handleOnChangeProfile}
-                                        type={`${item.name == 'dateOfBirth' ? 'date' : item.name == 'contactNumber' ? 'number' : 'text'}`}
-                                        name={item.name}
-                                        placeholder={`${user[item.name] ? user[item.name] : user.additionalDetails[item.name] ? user.additionalDetails[item.name] : 'Enter here'}`}
-                                        className='text-richblack-100 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline
+                                    {!user.additionalDetails.gender && <option value=''>Choose here</option>}
+                                    <option value='Female'>Female</option>
+                                    <option value='Male'>Male</option>
+                                </select>) :
+                                (<input
+                                    value={formData[item.name]}
+                                    onChange={handleOnChangeProfile}
+                                    type={`${item.name == 'dateOfBirth' ? 'date' : item.name == 'contactNumber' ? 'number' : 'text'}`}
+                                    name={item.name}
+                                    placeholder={`${user[item.name] ? user[item.name] : user.additionalDetails[item.name] ? user.additionalDetails[item.name] : 'Enter here'}`}
+                                    className='text-richblack-100 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline
                                      placeholder:text-richblack-400 placeholder:italic spin-button-none' />
-                                    )}
+                                )}
 
 
-                            </div>
+                        </div>
 
-                        )
-                    })}
-                    <button
-                        type='submit'
-                        className='font-medium bg-yellow-50 py-3 px-6 rounded-md mt-6 w-fit '>
-                        Save
-                    </button>
-                </form>
+                    )
+                })}
+                <button
+                    type='submit'
+                    className='font-medium bg-yellow-50 py-3 px-6 rounded-md mt-6 w-fit '>
+                    Save
+                </button>
+            </form>
 
-            </div>
-  )
+        </div>
+    )
 }
 
 export default UpdatePersonalInfo
